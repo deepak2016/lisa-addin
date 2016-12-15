@@ -96,16 +96,16 @@
         <bt:Image id="taskpaneButtonIcon2-80" DefaultValue="https://localhost:8443/images/icon-80.png"/>
       </bt:Images>
       <bt:Urls>
-        <bt:Url id="taskPaneUrl1" DefaultValue="https://localhost:8443/TaskPane/TaskPane.html"/>
-        <bt:Url id="taskPaneUrl2" DefaultValue="https://localhost:8443/TaskPane/TaskPane.html"/>
+        <bt:Url id="taskPaneUrl1" DefaultValue="https://localhost:8443/appread/index.html"/>
+        <bt:Url id="taskPaneUrl2" DefaultValue="https://localhost:8443/appcompose/index.html"/>
       </bt:Urls>
       <bt:ShortStrings>
         <bt:String id="groupLabel1" DefaultValue="Group 1"/>
         <bt:String id="groupLabel2" DefaultValue="Group 2"/>
-        <bt:String id="taskpaneButtonLabel1" DefaultValue="Taskpane Button 1"/>
-        <bt:String id="taskpaneButtonLabel2" DefaultValue="Taskpane Button 2"/>
-        <bt:String id="taskpaneButtonSuperTipTitle1" DefaultValue="Taskpane Button 1"/>
-        <bt:String id="taskpaneButtonSuperTipTitle2" DefaultValue="Taskpane Button 2"/>
+        <bt:String id="taskpaneButtonLabel1" DefaultValue="Lisa"/>
+        <bt:String id="taskpaneButtonLabel2" DefaultValue="Lisa"/>
+        <bt:String id="taskpaneButtonSuperTipTitle1" DefaultValue="Ask Lisa for Help"/>
+        <bt:String id="taskpaneButtonSuperTipTitle2" DefaultValue="Ask Lisa for Help"/>
       </bt:ShortStrings>
       <bt:LongStrings>
         <bt:String id="taskpaneButtonSuperTipDesc1" DefaultValue="This is the description for Taskpane Button 1"/>
