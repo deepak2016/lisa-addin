@@ -44,7 +44,7 @@ gulp.task('default', ['help']);
  * Startup static webserver.
  */
 gulp.task('serve-static', function () {
-    gulp.src('./src/')
+    gulp.src('.')
         .pipe(webserver({
             https: true,
             port: '8443',
