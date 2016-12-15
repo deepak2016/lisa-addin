@@ -1,1 +1,15 @@
-{{::vm.title}}
+<div class="ms-Pivot ">
+  <ul class="ms-Pivot-links">
+      <li ng-repeat="tab in vm.tabs" class="ms-Pivot-link is-selected" data-content="{{tab.content}}" title="{{tab.title}}" tabindex="1">
+        <i class="ms-Icon ms-Icon--{{tab.icon}}" aria-hidden="true"></i>
+      </li>
+      
+      <!--<li class="ms-Pivot-link" tabindex="1">
+        <i class="ms-Pivot-ellipsis ms-Icon ms-Icon--More"></i>
+      </li>-->
+  </ul>
+    <div ng-repeat="tab in vm.tabs" class="ms-Pivot-content" data-content="{{tab.content}}">
+      {{tab.title}}
+    </div>
+    
+</div>
