@@ -4,6 +4,7 @@ var gulp = require('gulp');
 var replace=require('gulp-replace');
 var argv = require('yargs').argv;
 var webserver = require('gulp-webserver');
+var livewebserver = require('gulp-server-livereload');
 var fs = require('fs');
 var minimist = require('minimist');
 var xmllint = require('xmllint');
@@ -45,7 +46,7 @@ gulp.task('default', ['help']);
  */
 gulp.task('serve-static', function () {
     gulp.src('.')
-        .pipe(webserver({
+        .pipe(livewebserver({
             https: true,
             port: '8443',
             host: 'localhost',

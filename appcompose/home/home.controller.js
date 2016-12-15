@@ -9,7 +9,7 @@
    */
   function homeController(dataService){
     var vm = this;  // jshint ignore:line
-    vm.title = 'home controller';
+    vm.title = 'my new home controller changed';
     vm.dataObject = {};
 
     getDataFromService();
