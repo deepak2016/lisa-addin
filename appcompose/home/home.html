@@ -7,9 +7,13 @@
       <!--<li class="ms-Pivot-link" tabindex="1">
         <i class="ms-Pivot-ellipsis ms-Icon ms-Icon--More"></i>
       </li>-->
-  </ul>
+  </ul></ul>
     <div ng-repeat="tab in vm.tabs" class="ms-Pivot-content" data-content="{{tab.content}}">
       {{tab.title}}
+        <div ng-if="tab.title =='Canned'">
+            <div ng-repeat="card in vm.cannedCards">
+                <button name="{{card.title}}" ng-click="vm.addCannedMail(card)"><h1>{{card.title}}</h1><p>{{card.content}}</p></button>
+            </div>
+        </div>
     </div>
-    
 </div>
