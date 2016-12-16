@@ -52,7 +52,7 @@
             {
               "language": "en",
               "id": new Date().getTime(),
-              "text": "document text"
+              "text": content
             }
           ]
         }

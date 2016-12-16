@@ -54,7 +54,7 @@
     vm.analyse = function() {
       officeAddinService.getBodyContent()
         .then(function(content) {
-          dataService.analyseContent(content)
+          dataService.analyseContent(content.value)
             .then(function(score) {
               vm.state.analyse.status = 'success';
               vm.analysis = {score: score, emoji: utilitiesService.getEmojiForScore(score)}
