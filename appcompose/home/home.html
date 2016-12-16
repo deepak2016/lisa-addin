@@ -13,6 +13,11 @@
         This is unified view
       </div>
 
+       <!-- Analyse -->
+      <div ng-switch-when="analyse">
+        <button ng-click="vm.analyse()">Analyse</button>
+      </div>
+
       <!-- Canned -->
       <div ng-switch-when="canned">
         <div ng-repeat="card in vm.cannedCards">

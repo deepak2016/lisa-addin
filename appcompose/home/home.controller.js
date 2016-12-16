@@ -14,7 +14,8 @@
     vm.tabs = [
       {title: 'Unified', icon: 'Brightness', content: 'unified'},
       {title: 'Canned', icon: 'Mail', content: 'canned'},
-      {title: 'Enoji', icon: 'Emoji', content: 'emoji'},
+      {title: 'Analyse', icon: 'Mail', content: 'analyse'},
+      {title: 'Emoji', icon: 'Emoji', content: 'emoji'},
       {title: 'Quotes', icon: 'Message', content: 'quote'},
       {title: 'TLDR', icon: 'PreviewLink', content: 'tldr'},
     ];
@@ -35,6 +36,10 @@
     vm.addCannedMail = function addCannedMail(card){
       officeAddinService.setSubject(card.title);
       officeAddinService.setBodyContent(card.content);
+    }
+
+    vm.analyse = function() {
+      
     }
     init();    
 
