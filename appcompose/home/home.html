@@ -17,6 +17,11 @@
       <div ng-switch-when="analyse">
         <button ng-click="vm.analyse()">Analyse</button>
         {{vm.analysis | json}}
+        <div class="analyseEmoji">
+         {{vm.analysis.emoji}}
+           {{vm.analysis.score}}
+           {{vm.analysis.message}}
+        </div>
       </div>
 
       <!-- Canned -->

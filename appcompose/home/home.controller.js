@@ -57,7 +57,7 @@
           dataService.analyseContent(content.value)
             .then(function(score) {
               vm.state.analyse.status = 'success';
-              vm.analysis = {score: score, emoji: utilitiesService.getEmojiForScore(score)}
+              vm.analysis = {score: score, emoji: utilitiesService.getEmojiForScore(score).emoji , message: utilitiesService.getEmojiForScore(score).message}
             }, function(xhr) {
               vm.state.analyse = getError("Error fetching analysis");
             });

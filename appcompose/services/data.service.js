@@ -132,16 +132,16 @@
 
     function getEmojiForScore(score) {
       if (score < 30) {
-        return 'sad';
+      return {emoji:'😡', message: 'Your message is too negative'};
       }
       if (score < 50) {
-        return 'ok';
+        return {emoji:'😔', message:'Your message is a little negative'};
       }
       if (score < 75) {
-        return 'happy';
+        return {emoji:'😄', message:'Your message is just Meh!!'};
       }
       if (score <= 100) {
-        return 'awesome';
+        return {emoji:'😎', message:'Your message is very positive, Keep rocking!!'};
       }
     }
   }
