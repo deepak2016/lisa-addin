@@ -38,7 +38,6 @@
 
     vm.analysis = {};
     vm.emojis = {};
-    vm.quotes = ["Honesty is the best policy", "Do or Die", "Actions speek louder than the words", "Pen is mightier than the sword"];
     vm.tldr = {};
 
     // functions 
