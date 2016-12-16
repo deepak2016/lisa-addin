@@ -3,8 +3,6 @@
 
   angular.module('officeAddin')
     .service('dataService', ['$q', '$http', dataService])
-    .service('officeAddinService', ['$q', officeAddinService])
-    .service('utilitiesService', ['$q', utilitiesService]);
 
   /**
    * Custom Angular service.
@@ -64,85 +62,5 @@
       return deferred.promise;
     }
 
-  }
-
-
-  /**
-   * Custom Angular service.
-   */
-  function officeAddinService($q) {
-
-    // public signature of the service
-    return {
-      setSubject: setSubject,
-      setBodyContent: setBodyContent,
-      getBodyContent: getBodyContent
-    };
-
-    /** *********************************************************** */
-
-    function setSubject(subject) {
-      Office.context.mailbox.item.subject.setAsync(subject,
-        function (asyncResult) {
-          if (asyncResult.status == "failed") {
-            console.log("Action failed with error: " + asyncResult.error.message);
-          } else {
-            console.log("Subject set successfully");
-          }
-        }
-      );
-    }
-
-    function setBodyContent(body) {
-      Office.context.mailbox.item.body.setAsync(
-        body,
-        { coercionType: "text" },
-        function (asyncResult) {
-          if (asyncResult.status == "failed") {
-            console.log("Action failed with error: " + asyncResult.error.message);
-          } else {
-            console.log("Successfully set body text");
-          }
-        }
-      );
-    }
-
-    function getBodyContent(body) {
-      var deferred = $q.defer();
-      Office.context.mailbox.item.body.getAsync(
-        "text",
-        function (asyncResult) {
-          if (asyncResult.status == "failed") {
-            deferred.reject(asyncResult.error);
-          } else {
-            deferred.resolve(asyncResult);
-          }
-        }
-      );
-
-      return deferred.promise;
-    }
-
-  }
-
-  function utilitiesService($q) {
-    return {
-      getEmojiForScore: getEmojiForScore
-    };
-
-    function getEmojiForScore(score) {
-      if (score < 30) {
-      return {emoji:'😡', message: 'Your message is too negative'};
-      }
-      if (score < 50) {
-        return {emoji:'😔', message:'Your message is a little negative'};
-      }
-      if (score < 75) {
-        return {emoji:'🙂', message:'Your message is just Meh!!'};
-      }
-      if (score <= 100) {
-        return {emoji:'😎', message:'Your message is very positive, Keep rocking!!'};
-      }
-    }
   }
 })();
