@@ -253,7 +253,7 @@
         console.log(score, emotion);
 
         // deferred.resolve(xhr.data.documents[0].score * 100);
-        deferred.resolve(12);
+        deferred.resolve({emotion:emotion, score: score*100});
       }, function (xhr) {
         console.log("error");
         deferred.reject(xhr);
