@@ -11,28 +11,41 @@
 
     // public signature of the service
     return {
-      getData: getData,
-      getStaticData: getStaticData,
-      analyseContent: analyseContent
+      analyseContent: analyseContent,
+      getCannedMessages: getCannedMessages,
+      getQuotes: getQuotes,
+      getTabs: getTabs
     };
 
     /** *********************************************************** */
 
-    function getData() {
-      var deferred = $q.defer();
-
-      deferred.resolve([
-        {
-          propertyOne: 'valueOne',
-          propertyTwo: 'valueTwo',
-        }
-      ]);
-
-      return deferred.promise;
+    function getCannedMessages() {
+      return [
+        { title: 'Leave Letter One', content: 'Please grant me a leave as I have to go attend the wedding of my dog, Chichi' },
+        { title: 'Leave Letter Two', content: 'Please grant me a leave as I have to go attend the wedding of my dog, Lapoo' }
+      ];
     }
 
-    function getStaticData() {
-      return 'blah';
+    function getQuotes() {
+      return [
+        { tag: 'inspire', message: 'Life is not a poem, it is a paragraph' },
+        { tag: 'inspire', message: 'Life is not a poem, it is a paragraph' },
+        { tag: 'inspire', message: 'Life is not a poem, it is a paragraph' },
+        { tag: 'inspire', message: 'Life is not a poem, it is a paragraph' },
+        { tag: 'inspire', message: 'Life is not a poem, it is a paragraph' }
+
+      ];
+    }
+
+    function getTabs() {
+      return [
+        { title: 'Unified', icon: 'Brightness', content: 'unified' },
+        { title: 'Canned', icon: 'Mail', content: 'canned' },
+        { title: 'Analyse', icon: 'Mail', content: 'analyse' },
+        { title: 'Emoji', icon: 'Emoji', content: 'emoji' },
+        { title: 'Quotes', icon: 'Message', content: 'quote' },
+        { title: 'TLDR', icon: 'PreviewLink', content: 'tldr' },
+      ];
     }
 
     function analyseContent(content) {
@@ -60,8 +73,8 @@
         var emotions = xhr.data.docEmotions;
         console.log(emotions);
         var score = 0;
-        var emotion ;
-      for (var i = 0; i < 5; i++) {
+        var emotion;
+        for (var i = 0; i < 5; i++) {
           var value = emotions[Object.keys(emotions)[i]];
           if (value > score) {
             score = value;

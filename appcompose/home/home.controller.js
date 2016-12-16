@@ -11,21 +11,12 @@
     var vm = this;  // jshint ignore:line
     vm.title = 'Home';
 
-    vm.tabs = [
-      { title: 'Unified', icon: 'Brightness', content: 'unified' },
-      { title: 'Canned', icon: 'Mail', content: 'canned' },
-      { title: 'Analyse', icon: 'Mail', content: 'analyse' },
-      { title: 'Emoji', icon: 'Emoji', content: 'emoji' },
-      { title: 'Quotes', icon: 'Message', content: 'quote' },
-      { title: 'TLDR', icon: 'PreviewLink', content: 'tldr' },
-    ];
+    vm.tabs = dataService.getTabs();
 
     vm.selectedTab = vm.tabs[0];
 
-    vm.cannedCards = [
-      { title: 'Leave Letter One', content: 'Please grant me a leave as I have to go attend the wedding of my dog, Chichi' },
-      { title: 'Leave Letter Two', content: 'Please grant me a leave as I have to go attend the wedding of my dog, Lapoo' }
-    ]
+    vm.cannedCards = dataService.getCannedMessages();
+    vm.quotes = dataService.getQuotes();
     vm.dataObject = {};
     vm.state = {
       unified: { status: 'loading', message: '' },
