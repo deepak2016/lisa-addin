@@ -13,7 +13,8 @@
     return {
       setSubject: setSubject,
       setBodyContent: setBodyContent,
-      getBodyContent: getBodyContent
+      getBodyContent: getBodyContent,
+      setContentAtCursor: setContentAtCursor
     };
 
     /** *********************************************************** */
@@ -44,7 +45,21 @@
       );
     }
 
-    function getBodyContent(body) {
+    function setContentAtCursor(body) {
+      Office.context.mailbox.item.body.setSelectedDataAsync(
+        body,
+        { coercionType: "text" },
+        function (asyncResult) {
+          if (asyncResult.status == "failed") {
+            console.log("Action failed with error: " + asyncResult.error.message);
+          } else {
+            console.log("Successfully set body text");
+          }
+        }
+      );
+    }
+
+    function getBodyContent() {
       var deferred = $q.defer();
       Office.context.mailbox.item.body.getAsync(
         "text",

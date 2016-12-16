@@ -9,8 +9,6 @@
    */
   function homeController(dataService, officeAddinService, utilitiesService) {
     var vm = this;  // jshint ignore:line
-    vm.title = 'Home';
-
     vm.tabs = dataService.getTabs();
 
     vm.selectedTab = vm.tabs[0];
@@ -19,11 +17,11 @@
     vm.quotes = dataService.getQuotes();
     vm.dataObject = {};
     vm.state = {
-      unified: { status: 'loading', message: '' },
+      unified: { status: 'success', message: '' },
       canned: { status: 'success' },
       analyse: { status: 'loading' },
       emoji: { status: 'success' },
-      quotes: { status: 'loading' },
+      quotes: { status: 'success' },
       tldr: { status: 'loading' }
     }
 
@@ -39,6 +37,10 @@
     vm.addCannedMail = function addCannedMail(card) {
       officeAddinService.setSubject(card.title);
       officeAddinService.setBodyContent(card.content);
+    }
+
+    vm.addQuote = function(quote) {
+      officeAddinService.setContentAtCursor(quote.message + ' - ' + quote.author);
     }
 
     vm.analyse = function () {
@@ -96,6 +98,7 @@
       analyseContent(value);
     }
 
+    // setup fabric components
     function initUiComponents() {
       setTimeout(function () {
         var PivotElements = document.querySelectorAll(".ms-Pivot");
@@ -112,6 +115,11 @@
               component = new fabric['Spinner'](elements[i]);
             }
           }
+        }
+
+        var TextFieldElements = document.querySelectorAll(".ms-TextField");
+        for(var i = 0; i < TextFieldElements.length; i++) {
+            new fabric['TextField'](TextFieldElements[i]);
         }
       }, 1000);
     };

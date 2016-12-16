@@ -15,3 +15,9 @@
     width: 30px;
     margin: 20px auto;
 }
+
+.quote {
+    margin: 10px;
+    border: 1px solid #CCC;
+    padding: 10px;
+}

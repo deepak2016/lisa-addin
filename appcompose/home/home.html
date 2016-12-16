@@ -17,7 +17,13 @@
       </div>
       <!-- Unified -->
       <div ng-switch-when="unified">
-
+        <div class="analyseEmoji">
+          {{vm.analysis.emoji}}
+        </div>
+        <div class="analyseMessage">
+          {{vm.analysis.score}}
+          <p> {{vm.analysis.message}}</p>
+        </div>
       </div>
 
       <!-- Analyse -->
@@ -40,7 +46,17 @@
 
       <!-- Quotes -->
       <div ng-switch-when="quotes">
+           <input style="margin: 0 10px;" class="ms-TextField-field" ng-model="vm.quoteFilter" type="text" value="" placeholder="Enter keyword" >
 
+          <div ng-repeat="quote in vm.quotes | filter: vm.quoteFilter">
+          <div class="quote" ng-click="vm.addQuote(quote)">
+            <div style="margin-bottom: 10px">{{quote.message}}</div>
+            <div class="ms-font-s">{{quote.author}} 
+              <button style="float:right" class="ms-bgColor-themeLight ms-bgColor-themeLighter">
+                <i class="ms-Icon ms-Icon--Add"></i>
+                Add Quote</button></div>
+          </div>
+        </div>
       </div>
 
       <!-- default -->
