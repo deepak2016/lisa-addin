@@ -48,6 +48,7 @@
         .then(
           function(xhr) {
             var data = xhr.data;
+            console.log(data);
           }, function() {
             console.log('failure', data);
           }
