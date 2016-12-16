@@ -3,8 +3,6 @@
 
   angular.module('officeAddin')
     .service('dataService', ['$q', '$http', dataService])
-    .service('officeAddinService', ['$q', officeAddinService])
-    .service('utilitiesService', ['$q', utilitiesService]);
 
   /**
    * Custom Angular service.
@@ -82,6 +80,7 @@
     }
 
   }
+<<<<<<< HEAD
 
 
   /**
@@ -162,4 +161,6 @@
       }
     }
   }
+=======
+>>>>>>> 374a5538083a124925c26f239ddfbd40f5b5f024
 })();
