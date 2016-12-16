@@ -2,12 +2,12 @@
   'use strict';
 
   angular.module('officeAddin')
-         .controller('homeController', ['dataService', 'officeAddinService', homeController]);
+         .controller('homeController', ['dataService', 'officeAddinService', 'utilitiesService', homeController]);
 
   /**
    * Controller constructor
    */
-  function homeController(dataService, officeAddinService){
+  function homeController(dataService, officeAddinService, utilitiesService){
     var vm = this;  // jshint ignore:line
     vm.title = 'Home';
 
@@ -27,6 +27,19 @@
       {title:'Leave Letter Two', content:'Please grant me a leave as I have to go attend the wedding of my dog, Lapoo'}
     ]
     vm.dataObject = {};
+    vm.state = {
+      unified: {status: 'loading', message: ''},
+      canned: {status: 'loading'},
+      analyse: {status: 'loading'},
+      emoji: {status: 'loading'},
+      quotes: {status: 'loading'},
+      tldr: {status: 'loading'}
+    }
+
+    vm.analysis = {};
+    vm.emojis = {};
+    vm.quotes = {};
+    vm.tldr = {};
     
     // functions 
     vm.selectTab = function(tab) {
@@ -39,9 +52,25 @@
     }
 
     vm.analyse = function() {
-      
+      officeAddinService.getBodyContent()
+        .then(function(content) {
+          dataService.analyseContent(content)
+            .then(function(score) {
+              vm.state.analyse.status = 'success';
+              vm.analysis = {score: score, emoji: utilitiesService.getEmojiForScore(score)}
+            }, function(xhr) {
+              vm.state.analyse = getError("Error fetching analysis");
+            });
+        }, function(error) {
+          vm.state.analyse = getError("Error getting body content: " + error.message);
+          console.log(error, error.message);
+        });
     }
     init();    
+
+    function getError(message) {
+      return {status: 'error', message: message};
+    }
 
     function getDataFromService(){
       dataService.analyseContent('Here is a really long sad email')

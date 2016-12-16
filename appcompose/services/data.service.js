@@ -3,7 +3,8 @@
 
   angular.module('officeAddin')
     .service('dataService', ['$q', '$http', dataService])
-    .service('officeAddinService', ['$q', officeAddinService]);
+    .service('officeAddinService', ['$q', officeAddinService])
+    .service('utilitiesService', ['$q', utilitiesService]);
 
   /**
    * Custom Angular service.
@@ -37,7 +38,8 @@
     }
 
     function analyseContent(content) {
-      return $http({
+      var deferred = $q.defer();
+      $http({
         method: 'POST',
         url: 'https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment',
         headers: {
@@ -54,7 +56,12 @@
             }
           ]
         }
-      })
+      }).then(function(xhr) {
+        deferred.resolve(xhr.data.documents[0].score * 100);
+      }, function(xhr) {
+        deferred.reject(xhr);
+      });
+      return deferred.promise;
     }
 
   }
@@ -68,7 +75,8 @@
     // public signature of the service
     return {
       setSubject: setSubject,
-      setBodyContent: setBodyContent
+      setBodyContent: setBodyContent,
+      getBodyContent: getBodyContent
     };
 
     /** *********************************************************** */
@@ -99,5 +107,42 @@
       );
     }
 
+    function getBodyContent(body) {
+      var deferred = $q.defer();
+      Office.context.mailbox.item.body.getAsync(
+        "text",
+        function (asyncResult) {
+          if (asyncResult.status == "failed") {
+            deferred.reject(asyncResult.error);
+          } else {
+            deferred.resolve(asyncResult);
+          }
+        }
+      );
+
+      return deferred.promise;
+    }
+
+  }
+
+  function utilitiesService($q) {
+    return {
+      getEmojiForScore: getEmojiForScore
+    };
+
+    function getEmojiForScore(score) {
+      if (score < 30) {
+        return 'sad';
+      }
+      if (score < 50) {
+        return 'ok';
+      }
+      if (score < 75) {
+        return 'happy';
+      }
+      if (score <= 100) {
+        return 'awesome';
+      }
+    }
   }
 })();
