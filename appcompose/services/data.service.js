@@ -138,7 +138,7 @@
         return {emoji:'😔', message:'Your message is a little negative'};
       }
       if (score < 75) {
-        return {emoji:'😄', message:'Your message is just Meh!!'};
+        return {emoji:'🙂', message:'Your message is just Meh!!'};
       }
       if (score <= 100) {
         return {emoji:'😎', message:'Your message is very positive, Keep rocking!!'};
