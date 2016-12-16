@@ -13,16 +13,16 @@
         This is unified view
       </div>
 
-       <!-- Analyse -->
+      <!-- Analyse -->
       <div ng-switch-when="analyse">
         <button ng-click="vm.analyse()">Analyse</button>
-        {{vm.analysis | json}}
         <div class="analyseEmoji">
-         {{vm.analysis.emoji}}
-          </div>
-           {{vm.analysis.score}}
-           {{vm.analysis.message}}
-       
+          {{vm.analysis.emoji}}
+        </div>
+        <div class="analyseMessage">
+          {{vm.analysis.score}}
+          <p> {{vm.analysis.message}}</p>
+        </div>
       </div>
 
       <!-- Canned -->

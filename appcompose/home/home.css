@@ -1,4 +1,8 @@
 .analyseEmoji{
     font-size:8em;
-    margin-left: 1em;
+    text-align: center
+}
+
+.analyseMessage{
+    text-align: center;
 }
