@@ -44,18 +44,22 @@
     init();    
 
     function getDataFromService(){
-      dataService.getData()
-        .then(function(response){
-          vm.dataObject = response;
-        });
+      dataService.analyseContent('Here is a really long sad email')
+        .then(
+          function(xhr) {
+            var data = xhr.data;
+          }, function() {
+            console.log('failure', data);
+          }
+        );
     }
 
     function init() {
-      initComponents();
-      // getDataFromService();
+      initUiComponents();
+      getDataFromService();
     }
 
-    function initComponents() {
+    function initUiComponents() {
       setTimeout(function() {
         var PivotElements = document.querySelectorAll(".ms-Pivot");
         for(var i = 0; i < PivotElements.length; i++) {
