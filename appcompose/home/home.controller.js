@@ -22,10 +22,8 @@
 
     vm.selectedTab = vm.tabs[0];
 
-    vm.cannedCards = [
-      { title: 'Leave Letter One', content: 'Please grant me a leave as I have to go attend the wedding of my dog, Chichi' },
-      { title: 'Leave Letter Two', content: 'Please grant me a leave as I have to go attend the wedding of my dog, Lapoo' }
-    ]
+    vm.cannedCards = dataService.getCannedMessages();
+    vm.quotes = dataService.getQuotes();
     vm.dataObject = {};
     vm.state = {
       unified: { status: 'loading', message: '' },

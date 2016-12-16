@@ -11,28 +11,29 @@
 
     // public signature of the service
     return {
-      getData: getData,
-      getStaticData: getStaticData,
-      analyseContent: analyseContent
+      analyseContent: analyseContent,
+      getCannedMessages: getCannedMessages,
+      getQuotes: getQuotes
     };
 
     /** *********************************************************** */
 
-    function getData() {
-      var deferred = $q.defer();
-
-      deferred.resolve([
-        {
-          propertyOne: 'valueOne',
-          propertyTwo: 'valueTwo',
-        }
-      ]);
-
-      return deferred.promise;
+    function getCannedMessages() {
+      return [
+        { title: 'Leave Letter One', content: 'Please grant me a leave as I have to go attend the wedding of my dog, Chichi' },
+        { title: 'Leave Letter Two', content: 'Please grant me a leave as I have to go attend the wedding of my dog, Lapoo' }
+      ];
     }
 
-    function getStaticData() {
-      return 'blah';
+    function getQuotes() {
+      return [
+        {tag: 'inspire', message: 'Life is not a poem, it is a paragraph'},
+        {tag: 'inspire', message: 'Life is not a poem, it is a paragraph'},
+        {tag: 'inspire', message: 'Life is not a poem, it is a paragraph'},
+        {tag: 'inspire', message: 'Life is not a poem, it is a paragraph'},
+        {tag: 'inspire', message: 'Life is not a poem, it is a paragraph'}
+
+      ];
     }
 
     function analyseContent(content) {
@@ -54,9 +55,9 @@
             }
           ]
         }
-      }).then(function(xhr) {
+      }).then(function (xhr) {
         deferred.resolve(xhr.data.documents[0].score * 100);
-      }, function(xhr) {
+      }, function (xhr) {
         deferred.reject(xhr);
       });
       return deferred.promise;
