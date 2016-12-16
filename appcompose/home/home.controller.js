@@ -11,14 +11,7 @@
     var vm = this;  // jshint ignore:line
     vm.title = 'Home';
 
-    vm.tabs = [
-      { title: 'Unified', icon: 'Brightness', content: 'unified' },
-      { title: 'Canned', icon: 'Mail', content: 'canned' },
-      { title: 'Analyse', icon: 'Mail', content: 'analyse' },
-      { title: 'Emoji', icon: 'Emoji', content: 'emoji' },
-      { title: 'Quotes', icon: 'Message', content: 'quote' },
-      { title: 'TLDR', icon: 'PreviewLink', content: 'tldr' },
-    ];
+    vm.tabs = dataService.getTabs();
 
     vm.selectedTab = vm.tabs[0];
 
@@ -36,7 +29,6 @@
 
     vm.analysis = {};
     vm.emojis = {};
-    vm.quotes = {};
     vm.tldr = {};
 
     // functions 
