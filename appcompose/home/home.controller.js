@@ -29,9 +29,9 @@
     vm.dataObject = {};
     vm.state = {
       unified: { status: 'loading', message: '' },
-      canned: { status: 'loading' },
+      canned: { status: 'success' },
       analyse: { status: 'loading' },
-      emoji: { status: 'loading' },
+      emoji: { status: 'success' },
       quotes: { status: 'loading' },
       tldr: { status: 'loading' }
     }
@@ -78,8 +78,12 @@
     }
 
     function startPollingForContent() {
-      setInterval(function () {
-        officeAddinService.getBodyContent()
+      handleNewContent();
+      setInterval(handleNewContent, 5000);
+    }
+
+    function handleNewContent() {
+      officeAddinService.getBodyContent()
           .then(function (content) {
             var value = content.value;
             if (vm.lastKnownTextValue === value) {
@@ -87,11 +91,10 @@
             }
 
             vm.lastKnownTextValue = value;
-            analyseContent(value);
+            onChange(value);
           }, function () {
-
+            
           });
-      }, 5000);
     }
 
     function init() {
@@ -99,11 +102,26 @@
       startPollingForContent();
     }
 
+    function onChange(value) {
+      analyseContent(value);
+    }
+
     function initUiComponents() {
       setTimeout(function () {
         var PivotElements = document.querySelectorAll(".ms-Pivot");
         for (var i = 0; i < PivotElements.length; i++) {
           new fabric['Pivot'](PivotElements[i]);
+        }
+
+        if (typeof fabric !== "undefined") {
+          if ('Spinner' in fabric) {
+            var elements = document.querySelectorAll('.ms-Spinner');
+            var i = elements.length;
+            var component;
+            while (i--) {
+              component = new fabric['Spinner'](elements[i]);
+            }
+          }
         }
       }, 1000);
     };

@@ -8,14 +8,20 @@
   </ul>
   <div ng-repeat="tab in vm.tabs" class="ms-Pivot-content" data-content="{{tab.content}}">
     <div ng-switch="tab.content">
+      <div class="ms-u-textAlignCenter" ng-if="vm.state[tab.content].status == 'loading'">
+        <div class="spinnerContainer">
+          <div class="ms-Spinner ">
+          </div>
+        </div>
+        <div>Loading something awesome...</div>
+      </div>
       <!-- Unified -->
       <div ng-switch-when="unified">
-        This is unified view
+
       </div>
 
       <!-- Analyse -->
       <div ng-switch-when="analyse">
-        <button ng-click="vm.analyse()">Analyse</button>
         <div class="analyseEmoji">
           {{vm.analysis.emoji}}
         </div>

@@ -6,3 +6,12 @@
 .analyseMessage{
     text-align: center;
 }
+
+.divCenter {
+    margin: 0 auto;
+}
+
+.spinnerContainer {
+    width: 30px;
+    margin: 20px auto;
+}
