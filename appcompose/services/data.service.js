@@ -21,8 +21,26 @@
 
     function getCannedMessages() {
       return [
-        { title: 'Leave Letter One', content: 'Please grant me a leave as I have to go attend the wedding of my dog, Chichi' },
-        { title: 'Leave Letter Two', content: 'Please grant me a leave as I have to go attend the wedding of my dog, Lapoo' }
+        { title: 'Application for leave', content: 'Please grant me a leave as I have to go attend the wedding of my dog, Chichi' },
+        // { title: 'Leave Letter Two', content: 'Please grant me a leave as I have to go attend the wedding of my dog, Lapoo' },
+        { title: 'Sign in trouble?', content : 'Hello ' +
+        '' +
+
+        'Thank you for letting us know about the sign-in problem. Our technical team has fixed the issue for you.' +
+        '(Adjust this part to better suit your company’s service). You may now sign-in after correction has been made on your account. Here’s how to do so:' +
+        'Open (your website)' +
+        'Type your username and password' +
+        'Answer the security question' +
+        'If you still have any problems, please call our Customer Service Center at (your office number). We are here for you Monday through Friday from 8 AM until 5 PM.' +
+        'We are really sorry for the inconvenience. Everything should be working smoothly now!' +
+        'Sincerely'
+        },
+        {title: 'Refund Status', content :'We are sorry to hear that you did not enjoy your experience with us. As we truly value each of our customer’s happiness, we will gladly review your request for refund of (Your company’s product or service).' +
+        'However, please keep in mind that refund requests usually take (Put number of days) to process. We promise you though, we’ll keep you updated once we investigate your case.' +
+        'If the request is approved, you can expect the refund to be completed within (Put number of days).' +
+        'If there are any other problems, please do not hesitate to let me know. I would gladly provide you with further assistance'
+        },
+        {title: 'Sorry for the inconvenience', content:"I’m really sorry. We made a mistake in your order. We are going to fix it immediately, but it takes approximately 2 days. We will give you a cashback of Rs500/- to make up our errors."}
       ];
     }
 
