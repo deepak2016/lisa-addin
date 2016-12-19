@@ -14,7 +14,8 @@
       setSubject: setSubject,
       setBodyContent: setBodyContent,
       getBodyContent: getBodyContent,
-      setContentAtCursor: setContentAtCursor
+      setContentAtCursor: setContentAtCursor,
+      setBodyContentHTML: setBodyContentHTML    
     };
 
     /** *********************************************************** */
@@ -44,6 +45,20 @@
         }
       );
     }
+      
+    function setBodyContentHTML(body) {
+      Office.context.mailbox.item.body.setAsync(
+        body,
+        { coercionType: "html" },
+        function (asyncResult) {
+          if (asyncResult.status == "failed") {
+            console.log("Action failed with error: " + asyncResult.error.message);
+          } else {
+            console.log("Successfully set body text");
+          }
+        }
+      );
+    }  
 
     function setContentAtCursor(body) {
       Office.context.mailbox.item.body.setSelectedDataAsync(

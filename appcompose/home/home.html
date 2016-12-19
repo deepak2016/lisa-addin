@@ -1,77 +1,82 @@
 <div class="ms-Pivot ">
-  <ul class="ms-Pivot-links">
-    <li id="{{tab.title}}" ng-repeat="tab in vm.tabs" ng-click="vm.selectTab(tab)" class="ms-Pivot-link" ng-class="vm.selectedTab == tab ? 'is-selected': ''"
-      data-content="{{tab.content}}" title="{{tab.title}}" tabindex="1">
-      <!--<i class="ms-Icon ms-Icon--{{tab.icon}}" aria-hidden="true"></i>-->
-      {{tab.title}}
-    </li>
-  </ul>
-  <div ng-repeat="tab in vm.tabs" class="ms-Pivot-content" data-content="{{tab.content}}">
-    <div ng-switch="tab.content">
-      <div class="ms-u-textAlignCenter" ng-if="vm.state[tab.content].status == 'loading'">
-        <div class="spinnerContainer">
-          <div class="ms-Spinner ">
-          </div>
-        </div>
-        <div>Loading something awesome...</div>
-      </div>
-      <!-- Unified -->
-      <div ng-switch-when="unified">
-        <div ng-if="vm.isSmallEmail">
-        <div class="text-center pb-10">Hey, looks like you just started. Check out these quick templates or <a ng-click="vm.visit(1)">click here</a> for more templates</div>
-          <div ng-repeat="card in vm.cannedCards.slice(0,2)">
-            <button name="{{card.title}}" ng-click="vm.addCannedMail(card)"><h1>{{card.title}}</h1><p>{{card.content.substring(0, 100)}}</p></button>
-          </div>
-        </div>
+    <ul class="ms-Pivot-links">
+        <li id="{{tab.title}}" ng-repeat="tab in vm.tabs" ng-click="vm.selectTab(tab)" class="ms-Pivot-link" ng-class="vm.selectedTab == tab ? 'is-selected': ''"
+            data-content="{{tab.content}}" title="{{tab.title}}" tabindex="1">
+            <!--<i class="ms-Icon ms-Icon--{{tab.icon}}" aria-hidden="true"></i>-->
+            {{tab.title}}
+        </li>
+    </ul>
+    <div ng-repeat="tab in vm.tabs" class="ms-Pivot-content" data-content="{{tab.content}}">
+        <div ng-switch="tab.content">
+            <div class="ms-u-textAlignCenter" ng-if="vm.state[tab.content].status == 'loading'">
+                <div class="spinnerContainer">
+                    <div class="ms-Spinner ">
+                    </div>
+                </div>
+                <div>Loading something awesome...</div>
+            </div>
+            <!-- Unified -->
+            <div ng-switch-when="unified">
+                <div ng-if="vm.isSmallEmail">
+                    <div class="text-center pb-10">Hey, looks like you just started. Check out these quick templates or <a ng-click="vm.visit(1)">click here</a> for more templates</div>
+                    <div ng-repeat="card in vm.cannedCards.slice(0,2)">
+                        <button name="{{card.title}}" ng-click="vm.addCannedMail(card)"><h1>{{card.title}}</h1><p>{{card.content.substring(0, 100)}}</p></button>
+                    </div>
+                </div>
 
-        <div class="analyseEmoji">
-          {{vm.analysis.emoji}}
+                <div class="analyseEmoji">
+                    {{vm.analysis.emoji}}
+                </div>
+                <div class="analyseMessage">
+                    {{vm.analysis.score}}
+                    <p> {{vm.analysis.message}}</p>
+                </div>
+            </div>
+
+            <!-- Analyse -->
+            <div ng-switch-when="analyse">
+                <div class="analyseEmoji">
+                    {{vm.analysis.emoji}}
+                </div>
+                <div class="analyseMessage">
+                    {{vm.analysis.score}}
+                    <p> {{vm.analysis.message}}</p>
+                </div>
+            </div>
+
+            <!-- Canned -->
+            <div ng-switch-when="canned">
+                <input style="margin: 0 10px;" class="ms-TextField-field" ng-model="vm.cannedFilter" type="text" value="" placeholder="Enter keyword" >
+                <div ng-repeat="card in vm.cannedCards | filter: vm.cannedFilter">
+                    <button name="{{card.title}}" ng-click="vm.addCannedMail(card)"><h1>{{card.title}}</h1><p>{{card.content}}</p></button>
+                </div>
+            </div>
+
+            <!-- Quotes -->
+            <div ng-switch-when="quotes">
+                <input style="margin: 0 10px;" class="ms-TextField-field" ng-model="vm.quoteFilter" type="text" value="" placeholder="Enter keyword" >
+
+                <div ng-repeat="quote in vm.quotes | filter: vm.quoteFilter">
+                    <div class="quote">
+                        <div style="margin-bottom: 10px">{{quote.message}}</div>
+                        <div class="ms-font-s">{{quote.author}}
+                            <button ng-click="vm.addQuote(quote)" style="float:right" class="ms-bgColor-themeLight ms-bgColor-themeLighter">
+                                <i class="ms-Icon ms-Icon--Add"></i> Add Quote</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Emoji -->
+            <div ng-switch-when="emoji">
+                <button name="emojify" ng-click="vm.emojifymail()">emojify</button>
+            </div>         
+
+            <!-- default -->
+            <div ng-switch-default>
+                {{tab.title}}
+            </div>
+
         </div>
-        <div class="analyseMessage">
-          {{vm.analysis.score}}
-          <p> {{vm.analysis.message}}</p>
-        </div>
-      </div>
-
-      <!-- Analyse -->
-      <div ng-switch-when="analyse">
-        <div class="analyseEmoji">
-          {{vm.analysis.emoji}}
-        </div>
-        <div class="analyseMessage">
-          {{vm.analysis.score}}
-          <p> {{vm.analysis.message}}</p>
-        </div>
-      </div>
-
-      <!-- Canned -->
-      <div ng-switch-when="canned">
-        <input style="margin: 0 10px;" class="ms-TextField-field" ng-model="vm.cannedFilter" type="text" value="" placeholder="Enter keyword" >
-        <div ng-repeat="card in vm.cannedCards | filter: vm.cannedFilter">
-          <button name="{{card.title}}" ng-click="vm.addCannedMail(card)"><h1>{{card.title}}</h1><p>{{card.content}}</p></button>
-        </div>
-      </div>
-
-      <!-- Quotes -->
-      <div ng-switch-when="quotes">
-        <input style="margin: 0 10px;" class="ms-TextField-field" ng-model="vm.quoteFilter" type="text" value="" placeholder="Enter keyword" >
-
-<div ng-repeat="quote in vm.quotes | filter: vm.quoteFilter">
-  <div class="quote">
-    <div style="margin-bottom: 10px">{{quote.message}}</div>
-<div class="ms-font-s">{{quote.author}}
-  <button ng-click="vm.addQuote(quote)" style="float:right" class="ms-bgColor-themeLight ms-bgColor-themeLighter">
-<i class="ms-Icon ms-Icon--Add"></i> Add Quote</button>
-</div>
-</div>
-</div>
-</div>
-
-<!-- default -->
-<div ng-switch-default>
-  {{tab.title}}
-</div>
-
-</div>
-</div>
+    </div>
 </div>
