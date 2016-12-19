@@ -28,6 +28,7 @@
     vm.analysis = {};
     vm.emojis = {};
     vm.tldr = {};
+    vm.isSmallEmail = true;
 
     // functions 
     vm.selectTab = function (tab) {
@@ -37,6 +38,11 @@
     vm.addCannedMail = function addCannedMail(card) {
       officeAddinService.setSubject(card.title);
       officeAddinService.setBodyContent(card.content);
+    }
+
+    vm.visit = function(index) {
+      vm.selectedTab = vm.tabs[index];
+      document.getElementById(vm.selectedTab.title).click();
     }
 
     vm.addQuote = function(quote) {
@@ -96,6 +102,15 @@
 
     function onChange(value) {
       analyseContent(value);
+      checkEmailLength(value);
+    }
+
+    function checkEmailLength(content) {
+      if (content.trim().length < 30) {
+        vm.isSmallEmail = true;
+      } else {
+        vm.isSmallEmail = false;
+      }
     }
 
     // setup fabric components

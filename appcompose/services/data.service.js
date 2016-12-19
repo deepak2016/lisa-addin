@@ -21,8 +21,9 @@
 
     function getCannedMessages() {
       return [
-        { title: 'Application for leave', content: 'Please grant me a leave as I have to go attend the wedding of my dog, Chichi' },
-        // { title: 'Leave Letter Two', content: 'Please grant me a leave as I have to go attend the wedding of my dog, Lapoo' },
+        { title: 'Application for leave', content: 'Hi, Kindly grant me leave for the weekend of [insert date here] as I will be traveling for [insert place here].\n\n\nYour assistance in this regard is highly appreciated.' },
+        { title: 'OOF today', content: "I'm feeling sick today as I'm down with cold and fever. Will try to work from home later in the evening." },
+        {title: 'Sorry for the inconvenience', content:"I’m really sorry. We made a mistake in your order. We are going to fix it immediately, but it takes approximately 2 days. We will give you a cashback of Rs500/- to make up our errors."},
         { title: 'Sign in trouble?', content : 'Hello ' +
         '' +
 
@@ -39,8 +40,7 @@
         'However, please keep in mind that refund requests usually take (Put number of days) to process. We promise you though, we’ll keep you updated once we investigate your case.' +
         'If the request is approved, you can expect the refund to be completed within (Put number of days).' +
         'If there are any other problems, please do not hesitate to let me know. I would gladly provide you with further assistance'
-        },
-        {title: 'Sorry for the inconvenience', content:"I’m really sorry. We made a mistake in your order. We are going to fix it immediately, but it takes approximately 2 days. We will give you a cashback of Rs500/- to make up our errors."}
+        }
       ];
     }
 
@@ -134,62 +134,6 @@
 {message: 'Change your thoughts and you change your world', author: 'Norman Vincent Peale'},
 {message: 'Either write something worth reading or do something worth writing', author: 'Benjamin Franklin'},
 {message: 'Nothing is impossible, the word itself says, ìI\'m possible!î', author: 'Audrey Hepburn'},
-{message: 'Life is about making an impact, not making an income --Kevin Kruse'},
-{message: 'Whatever the mind of man can conceive and believe, it can achieve', author: 'Napoleon Hill'},
-{message: 'Strive not to be a success, but rather to be of value', author: 'Albert Einstein'},
-{message: 'Two roads diverged in a wood, and IóI took the one less traveled by, And that has made all the difference ', author: 'Robert Frost'},
-{message: 'I attribute my success to this: I never gave or took any excuse', author: 'Florence Nightingale'},
-{message: 'You miss  % of the shots you don\'t take', author: 'Wayne Gretzky'},
-{message: 'The most difficult thing is the decision to act, the rest is merely tenacity', author: 'Amelia Earhart'},
-{message: 'Every strike brings me closer to the next home run', author: 'Babe Ruth'},
-{message: 'Definiteness of purpose is the starting point of all achievement', author: 'W Clement Stone'},
-{message: 'Life is what happens to you while you\'re busy making other plans', author: 'John Lennon'},
-{message: 'We become what we think about', author: 'Earl Nightingale'},
-{message: 'Life is  % what happens to me and % of how I react to it', author: 'Charles Swindoll'},
-{message: 'The most common way people give up their power is by thinking they don\'t have any', author: 'Alice Walker'},
-{message: 'The mind is everything What you think you become ', author: 'Buddha'},
-{message: 'The best time to plant a tree was  years ago The second best time is now', author: 'Chinese Proverb'},
-{message: 'An unexamined life is not worth living', author: 'Socrates'},
-{message: 'Eighty percent of success is showing up', author: 'Woody Allen'},
-{message: 'Your time is limited, so don\'t waste it living someone else\'s life', author: 'Steve Jobs'},
-{message: 'Winning isn\'t everything, but wanting to win is', author: 'Vince Lombardi'},
-{message: 'I am not a product of my circumstances I am a product of my decisions', author: 'Stephen Covey'},
-{message: 'Every child is an artist  The problem is how to remain an artist once he grows up', author: 'Pablo Picasso'},
-{message: 'You can never cross the ocean until you have the courage to lose sight of the shore', author: 'Christopher Columbus'},
-{message: 'I\'ve learned that people will forget what you said, people will forget what you did, but people will never forget how you made them feel', author: 'Maya Angelou'},
-{message: 'Either you run the day, or the day runs you', author: 'Jim Rohn'},
-{message: 'Whether you think you can or you think you can\'t, you\'re right', author: 'Henry Ford'},
-{message: 'The two most important days in your life are the day you are born and the day you find out why', author: 'Mark Twain'},
-{message: 'Whatever you can do, or dream you can, begin it  Boldness has genius, power and magic in it', author: 'Johann Wolfgang von Goethe'},
-{message: 'The best revenge is massive success', author: 'Frank Sinatra'},
-{message: 'People often say that motivation doesn\'t last Well, neither does bathing  That\'s why we recommend it daily', author: 'Zig Ziglar'},
-{message: 'If you hear a voice within you say ìyou cannot paint,î then by all means paint and that voice will be silenced', author: 'Vincent Van Gogh'},
-{message: 'There is only one way to avoid criticism: do nothing, say nothing, and be nothing', author: 'Aristotle'},
-{message: 'Ask and it will be given to you; search, and you will find; knock and the door will be opened for you', author: 'Jesus'},
-{message: 'The only person you are destined to become is the person you decide to be', author: 'Ralph Waldo Emerson'},
-{message: 'Go confidently in the direction of your dreams  Live the life you have imagined', author: 'Henry David Thoreau'},
-{message: 'When I stand before God at the end of my life, I would hope that I would not have a single bit of talent left and could say, I used everything you gave me', author: 'Erma Bombeck'},
-{message: 'Few things can help an individual more than to place responsibility on him, and to let him know that you trust him ', author: 'Booker T Washington'},
-{message: 'Certain things catch your eye, but pursue only those that capture the heart', author: ' Ancient Indian Proverb'},
-{message: 'Believe you can and you\'re halfway there', author: 'Theodore Roosevelt'},
-{message: 'Everything you\'ve ever wanted is on the other side of fear', author: 'George Addair'},
-{message: 'We can easily forgive a child who is afraid of the dark; the real tragedy of life is when men are afraid of the light', author: 'Plato'},
-{message: 'Teach thy tongue to say, "I do not know," and thous shalt progress', author: 'Maimonides'},
-{message: 'Start where you are Use what you have  Do what you can', author: 'Arthur Ashe'},
-{message: 'Fall seven times and stand up eight', author: 'Japanese Proverb'},
-{message: 'When one door of happiness closes, another opens, but often we look so long at the closed door that we do not see the one that has been opened for us', author: 'Helen Keller'},
-{message: 'Everything has beauty, but not everyone can see', author: 'Confucius'},
-{message: 'How wonderful it is that nobody need wait a single moment before starting to improve the world', author: 'Anne Frank'},
-{message: 'When I let go of what I am, I become what I might be', author: 'Lao Tzu'},
-{message: 'Life is not measured by the number of breaths we take, but by the moments that take our breath away', author: 'Maya Angelou'},
-{message: 'Happiness is not something readymade  It comes from your own actions', author: 'Dalai Lama'},
-{message: 'If the wind will not serve, take to the oars', author: 'Latin Proverb'},
-{message: 'You can\'t fall if you don\'t climb  But there\'s no joy in living your whole life on the ground', author: 'Unknown'},
-{message: 'We must believe that we are gifted for something, and that this thing, at whatever cost, must be attained', author: 'Marie Curie'},
-{message: 'Too many of us are not living our dreams because we are living our fears', author: 'Les Brown'},
-{message: 'Challenges are what make life interesting and overcoming them is what makes life meaningful', author: 'Joshua J Marine'},
-{message: 'If you want to lift yourself up, lift up someone else', author: 'Booker T Washington'},
-{message: 'I have been impressed with the urgency of doing Knowing is not enough; we must apply Being willing is not enough; we must do', author: 'Leonardo da Vinci'},
 {message: 'Limitations live only in our minds  But if we use our imaginations, our possibilities become limitless', author: 'Jamie Paolinetti'},
 {message: 'You take your life in your own hands, and what happens? A terrible thing, no one to blame', author: 'Erica Jong'},
 {message: 'What\'s money? A man is a success if he gets up in the morning and goes to bed at night and in between does what he wants to do', author: 'Bob Dylan'},
@@ -229,8 +173,8 @@
         { title: 'Unified', icon: 'Brightness', content: 'unified' },
         { title: 'Canned', icon: 'Mail', content: 'canned' },
         { title: 'Analyse', icon: 'Mail', content: 'analyse' },
-        { title: 'Emoji', icon: 'Emoji', content: 'emoji' },
         { title: 'Quotes', icon: 'Message', content: 'quotes' },
+        { title: 'Emoji', icon: 'Emoji', content: 'emoji' },
         { title: 'TLDR', icon: 'PreviewLink', content: 'tldr' },
       ];
     }
@@ -271,7 +215,7 @@
         console.log(score, emotion);
 
         // deferred.resolve(xhr.data.documents[0].score * 100);
-        deferred.resolve({emotion:emotion, score: score*100});
+        deferred.resolve({emotion:emotion, score: Math.ceil(score*100)});
       }, function (xhr) {
         console.log("error");
         deferred.reject(xhr);
